@@ -1,0 +1,160 @@
+@charset "utf-8";
+
+body{
+	margin:0px;
+	padding:0px;
+	height:100%;
+}
+
+/*General*/
+.contenedor{
+	padding: 5px;
+}
+
+/*Header*/
+header{
+	background-color:#005F73;
+	padding: 5px;
+	color:white;
+}
+
+header img{
+	width:auto;
+	height:120px;
+	padding: 10px;
+	max-width: 100%;
+}
+header h1{
+	font-family:sans-serif;
+}
+
+header p{
+	font-family:monospace;
+}
+
+/*Nav*/
+nav{
+	background-color:#0A9396;
+	border-top: 2px solid white;
+}
+
+.navbar-nav .nav-link {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+.navbar-nav {
+    justify-content: center;
+    width: 100%;
+	
+  }
+
+.nav-item {
+    margin: 0 20px;
+  }
+  
+  /*Principal*/
+.principal{
+  	background-color:#FFF3CD;
+ }
+.informacion p{
+	font-size: 17px;
+} 
+
+.informacion img{
+	display:block;
+	margin: 0 auto;
+	max-width: 100%;
+	padding:5px;
+ 	height: auto;
+}
+
+.informacion h2{
+	background-color:#EE9B00;
+	padding:5px;
+	color:#9B2226;
+	border: 2px solid black;
+}
+
+.informacion ul{
+	list-style-type: none;
+	background-color:#faedcd;
+	padding:5px;
+	border: 2px solid black;
+}
+
+.informacion li{
+	 margin-bottom: 10px;
+}
+
+.informacion li a:hover{
+	color:#023e8a;
+}
+
+.informacion a{
+	color:black;
+}
+
+.recursos{
+	font-family:monospace;
+	text-align:center;
+	background-color:#94D2BD;
+	border: 2px solid black;
+	color:#001219;
+}
+
+.recursos h2{
+	color:#005F73;
+	font-weight: bold;
+}
+
+.recursos ul{
+	list-style-type: none;
+}
+
+.recursos li{
+	margin-bottom: 20px; 
+    margin-top: 20px;
+}
+
+.recursos li a{
+	font-size:25px;
+	text-decoration: none;
+	color:black;
+}
+
+.recursos li a:hover{
+	color:#023e8a;
+}
+/*Footer*/
+footer{
+	background-color:#005F73;
+	padding: 10px;
+	color:white;
+}
+
+footer p{
+	margin:0px;
+	text-align:center;
+}
+
+footer .redes{
+	display: flex;
+ 	justify-content: center; /* Centra horizontalmente */
+ 	align-items: center;
+}
+
+footer .redes img{
+	padding:5px;
+	margin: 0 10px;
+	max-width: 100%;
+	height:60px;
+}
+
+/*Responsivos*/
+@media (min-width: 768px) {
+footer p {
+        text-align: left;
+    }
+}
