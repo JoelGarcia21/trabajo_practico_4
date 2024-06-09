@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<!--Metadatos -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width ,initial-scale=1">
+<!-- Titulo -->
+<title>Docentes</title>
+<!-- CSS -->
+<link th:rel="stylesheet" th:href="@{/css/estilos.css}">
+<!-- Boostrap -->
+<link data-th-href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+	rel="stylesheet">
+</head>
+
+
+<body>
+
+	<!-- Header -->
+	<header th:replace="/layouts/header :: header"></header>
+
+	<!-- Seccion principal -->
+	<section class="principal" style="min-height: 710px; padding-bottom: 50px;">
+    <div class="container">
+        <div class="d-flex flex-column" style="padding: 10px;">
+            <h2 style="text-align: center;">Listado de Docentes</h2>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead class="text-center">
+                        <tr>
+                            <th>Legajo</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Correo</th>
+                            <th>Telefono</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        <tr th:each="docente : ${docentes}">
+                            <td th:text="${docente.legajo}"></td>
+                            <td th:text="${docente.nombre}"></td>
+                            <td th:text="${docente.apellido}"></td>
+                            <td th:text="${docente.correo}"></td>
+                            <td th:text="${docente.telefono}"></td>
+                            <td>
+                                <a th:href="@{/docentes/modificar/{legajo}(legajo=${docente.legajo})}" class="btn btn-warning">Editar</a>
+                                <a th:href="@{/docentes/eliminar/{legajo}(legajo=${docente.legajo})}" class="btn btn-danger">Eliminar</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="d-flex justify-content-center w-100" style="margin-top: 20px;">
+                <a th:href="@{/docentes/nuevo}" class="btn btn-primary" style="margin: 5px;">Agregar nuevo docente</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+	<!-- Footer -->
+	<header th:replace="/layouts/footer :: footer"></header>
+
+	<script type="text/javascript"
+		th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
+
+</html>
