@@ -14,11 +14,11 @@ private static List<Docente> docentes = new ArrayList<>();
 	
 	public static List<Docente> getDocentes() {
 		if(docentes.isEmpty()) {
-			docentes.add(new Docente(1234, "Juan", "Pérez", "juan@example.com", 123456789));
-			docentes.add(new Docente(5678, "María", "González", "maria@example.com", 987654321));
-			docentes.add(new Docente(9012, "Carlos", "Rodríguez", "carlos@example.com", 111222333));
-			docentes.add(new Docente(3456, "Laura", "López", "laura@example.com", 444555666));
-			docentes.add(new Docente(7890, "Pedro", "Martínez", "pedro@example.com", 777888999));
+			docentes.add(new Docente(1234, "Juan", "Pérez", "juan@gmail.com", 123456789));
+			docentes.add(new Docente(5678, "María", "González", "maria@gmail.com", 987654321));
+			docentes.add(new Docente(9012, "Carlos", "Rodríguez", "carlos@gmail.com", 111222333));
+			docentes.add(new Docente(3456, "Laura", "López", "laura@gmail.com", 444555666));
+			docentes.add(new Docente(7890, "Pedro", "Martínez", "pedro@gmail.com", 777888999));
 		}
 		return docentes;
 	}
