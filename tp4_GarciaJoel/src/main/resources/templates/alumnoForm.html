@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<!--Metadatos -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width ,initial-scale=1">
+		<!-- Titulo -->
+		<title>Alumnos | Formulario</title>
+		<!-- CSS -->
+		<link th:rel="stylesheet" th:href="@{/css/estilos.css}"> 
+		<!-- Boostrap -->
+		<link data-th-href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+	</head>
+
+	<body>
+	
+	<!-- Header -->
+	<header th:replace="/layouts/header :: header"></header>
+	
+	<!-- Sección principal -->
+	<section class="principal" style="padding: 50px; min-height: 800px">
+    <div class="container">
+        <h2 th:text="${edicion} ? 'Modificar Alumno' : 'Nuevo Alumno'" class="text" style="text-align: center"></h2>
+        <div class="d-flex justify-content-center">
+            <form th:action="${edicion} ? @{/alumnos/modificar} : @{/alumnos/guardar}" th:object="${alumno}" method="post" class="w-50">
+                <div class="form-group">
+                    <label for="dni">DNI:</label>
+                    <input type="number" id="dni" th:field="*{dni}" th:attr="readonly=${edicion}" class="form-control" required/>
+                </div>
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" th:field="*{nombre}" class="form-control" required/>
+                </div>
+                <div class="form-group">
+                    <label for="apellido">Apellido:</label>
+                    <input type="text" id="apellido" th:field="*{apellido}" class="form-control" required/>
+                </div>
+                <div class="form-group">
+                    <label for="correo">Correo:</label>
+                    <input type="email" id="correo" th:field="*{correo}" class="form-control" required/>
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="number" id="telefono" th:field="*{telefono}" class="form-control" required/>
+                </div>
+                <div class="form-group">
+                    <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+                    <input type="date" id="fechaNacimiento" th:field="*{fechaNacimiento}" class="form-control" required/>
+                </div>
+                <div class="form-group">
+                    <label for="domicilio">Domicilio:</label>
+                    <input type="text" id="domicilio" th:field="*{domicilio}" class="form-control" required/>
+                </div>
+                <div class="form-group">
+                    <label for="lu">LU:</label>
+                    <input type="number" id="lu" th:field="*{lu}" th:attr="readonly=${edicion}" class="form-control" required/>
+                </div>
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary" style="margin: 20px;" th:text="${edicion} ? 'Modificar' : 'Guardar'"></button>
+                </div>
+   <div th:if="${error}" class="alert alert-danger" role="alert" th:text="${error}"></div>
+            </form>
+        </div>
+    </div>
+</section>
+
+	<!-- Footer -->
+	<header th:replace="/layouts/footer :: footer"></header>
+	
+	<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+	</body>
+	
+</html>

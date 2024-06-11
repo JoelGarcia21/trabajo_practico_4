@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<!--Metadatos -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width ,initial-scale=1">
+<!-- Titulo -->
+<title>Carreras</title>
+<!-- CSS -->
+<link th:rel="stylesheet" th:href="@{/css/estilos.css}">
+<!-- Boostrap -->
+<link data-th-href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+	rel="stylesheet">
+</head>
+
+
+<body>
+
+	<!-- Header -->
+	<header th:replace="/layouts/header :: header"></header>
+
+	<!-- Seccion principal -->
+	<section class="principal" style="min-height: 710px; padding-bottom: 50px;">
+    <div class="container">
+        <div class="d-flex flex-column" style="padding: 10px;">
+            <h2 style="text-align: center;">Listado de Carreras</h2>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead class="text-center">
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                            <th>Duración</th>
+                            <th>Estado</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        <tr th:each="carrera : ${carreras}">
+                            <td th:text="${carrera.codigo}"></td>
+                            <td th:text="${carrera.nombre}"></td>
+                            <td th:text="${carrera.cantidadAnios + ' años'}"></td>
+                            <td>
+                                <span th:if="${carrera.estado}">Disponible</span>
+                                <span th:if="${!carrera.estado}">No disponible</span>
+                            </td>
+                            <td>
+                                <a th:href="@{/carreras/modificar/{codigo}(codigo=${carrera.codigo})}" class="btn btn-warning">Editar</a>
+                                <a th:href="@{/carreras/eliminar/{codigo}(codigo=${carrera.codigo})}" class="btn btn-danger">Eliminar</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="d-flex justify-content-center w-100" style="margin-top: 20px;">
+                <a th:href="@{/carreras/nuevo}" class="btn btn-primary" style="margin: 5px;">Agregar nueva carrera</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+	<!-- Footer -->
+	<header th:replace="/layouts/footer :: footer"></header>
+
+	<script type="text/javascript"
+		th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
+
+</html>
